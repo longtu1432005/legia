@@ -15,11 +15,22 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li>
+                <li class="active">
                     <a href="/">Trang chủ</a>
                 </li>
-                <li>
-                    <a href="about.php">Sản phẩm</a>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sản phẩm <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/about.php">Gạch</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="about.php">Đá</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="about.php">Sơn</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="about.php">Xi măng</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="about.php">Sản phẩm khác</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a href="blog.php">Trang trí nội thất</a>

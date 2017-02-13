@@ -40,55 +40,83 @@
     <div class="container">
 
         <div class="row">
-            <div class="box">
+            <div class="box article-container">
                 <div class="col-lg-12">
                     <hr>
-                    <h2 class="intro-text text-center">About
-                        <strong>business casual</strong>
+                    <h2 class="intro-text text-center"><a href="blog-detail.php">LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT</a>
                     </h2>
                     <hr>
                 </div>
                 <div class="col-md-6">
-                    <img class="img-responsive img-border-left" src="img/slide-2.jpg" alt="">
+                    <a href="blog-detail.php">
+                        <img class="img-responsive img-border-left" src="img/slide-2.jpg" alt="">
+                    </a>
                 </div>
                 <div class="col-md-6">
                     <p>This is a great place to introduce your company or project and describe what you do.</p>
                     <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+
+                    <p class="text-right"><a href="blog-detail.php">Xem thêm <span aria-hidden="true">»</span></a> </p>
                 </div>
                 <div class="clearfix"></div>
 
                 <div class="col-lg-12">
                     <hr>
-                    <h2 class="intro-text text-center">About
-                        <strong>business casual</strong>
+                    <h2 class="intro-text text-center"><a href="blog-detail.php">LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT</a>
                     </h2>
                     <hr>
                 </div>
                 <div class="col-md-6">
-                    <img class="img-responsive img-border-left" src="img/slide-2.jpg" alt="">
+                    <a href="blog-detail.php">
+                        <img class="img-responsive img-border-left" src="img/slide-2.jpg" alt="">
+                    </a>
                 </div>
                 <div class="col-md-6">
                     <p>This is a great place to introduce your company or project and describe what you do.</p>
                     <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+
+                    <p class="text-right"><a href="blog-detail.php">Xem thêm <span aria-hidden="true">»</span></a> </p>
                 </div>
                 <div class="clearfix"></div>
 
                 <div class="col-lg-12">
                     <hr>
-                    <h2 class="intro-text text-center">About
-                        <strong>business casual</strong>
+                    <h2 class="intro-text text-center"><a href="blog-detail.php">LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT</a>
                     </h2>
                     <hr>
                 </div>
                 <div class="col-md-6">
-                    <img class="img-responsive img-border-left" src="img/slide-2.jpg" alt="">
+                    <a href="blog-detail.php">
+                        <img class="img-responsive img-border-left" src="img/slide-2.jpg" alt="">
+                    </a>
                 </div>
                 <div class="col-md-6">
                     <p>This is a great place to introduce your company or project and describe what you do.</p>
                     <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+
+                    <p class="text-right"><a href="blog-detail.php">Xem thêm <span aria-hidden="true">»</span></a> </p>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">
+<!--                        <a href="blog-detail.php">-->
+                            LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT
+<!--                        </a>-->
+                    </h2>
+                    <hr>
+                </div>
+                <div class="col-md-6">
+                    <a href="blog-detail.php">
+                        <img class="img-responsive img-border-left" src="img/slide-2.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <p>This is a great place to introduce your company or project and describe what you do.</p>
+                    <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p>
+
+                    <p class="text-right"><a href="blog-detail.php">Xem thêm <span aria-hidden="true">»</span></a> </p>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -97,15 +125,7 @@
     </div>
     <!-- /.container -->
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php include "partials/footer.php"?>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>

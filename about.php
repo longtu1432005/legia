@@ -40,7 +40,7 @@
     <div class="container">
 
         <div class="row">
-            <div class="box">
+            <div class="box product-container">
                 <div class="col-lg-12">
                     <hr>
                     <h2 class="intro-text text-center">
@@ -48,81 +48,87 @@
                     </h2>
                     <hr>
                 </div>
-                <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                    <h3>Gạch
-                        <!--<a href="#"><small>Xem tất cả</small></a>-->
-                    </h3>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                    <h3>Đá
-                        <!--<small>Job Title</small>-->
-                    </h3>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                    <h3>Sơn
-                        <!--<small>Job Title</small>-->
-                    </h3>
+
+                <div class="col-sm-3 text-center">
+                    <a href="#" data-toggle="modal" data-target="#myModal"><img class="img-responsive" src="http://placehold.it/750x450" alt=""></a>
+                    <h3><a href="#" data-toggle="modal" data-target="#myModal">Sơn</a></h3>
                 </div>
 
-                <div class="clearfix"></div>
-                <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                    <h3>Gạch
-                        <!--<a href="#"><small>Xem tất cả</small></a>-->
-                    </h3>
+                <div class="col-sm-3 text-center">
+                    <a href="#" data-toggle="modal" data-target="#myModal"><img class="img-responsive" src="http://placehold.it/750x450" alt=""></a>
+                    <h3><a href="#" data-toggle="modal" data-target="#myModal">Sơn</a></h3>
                 </div>
-                <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                    <h3>Đá
-                        <!--<small>Job Title</small>-->
-                    </h3>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                    <h3>Sơn
-                        <!--<small>Job Title</small>-->
-                    </h3>
-                </div>
-                <div class="clearfix"></div>
 
-                <div class="clearfix"></div>
-                <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                    <h3>Gạch
-                        <!--<a href="#"><small>Xem tất cả</small></a>-->
-                    </h3>
+                <div class="col-sm-3 text-center">
+                    <a href="#" data-toggle="modal" data-target="#myModal"><img class="img-responsive" src="http://placehold.it/750x450" alt=""></a>
+                    <h3><a href="#" data-toggle="modal" data-target="#myModal">Sơn</a></h3>
                 </div>
-                <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                    <h3>Đá
-                        <!--<small>Job Title</small>-->
-                    </h3>
+
+                <div class="col-sm-3 text-center">
+                    <a href="#" data-toggle="modal" data-target="#myModal"><img class="img-responsive" src="http://placehold.it/750x450" alt=""></a>
+                    <h3><a href="#" data-toggle="modal" data-target="#myModal">Sơn</a></h3>
                 </div>
-                <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                    <h3>Sơn
-                        <!--<small>Job Title</small>-->
-                    </h3>
+
+                <div class="col-sm-3 text-center">
+                    <a href="#" data-toggle="modal" data-target="#myModal"><img class="img-responsive" src="http://placehold.it/750x450" alt=""></a>
+                    <h3><a href="#" data-toggle="modal" data-target="#myModal">Sơn</a></h3>
                 </div>
-                <div class="clearfix"></div>
+
+                <div class="col-sm-3 text-center">
+                    <a href="#" data-toggle="modal" data-target="#myModal"><img class="img-responsive" src="http://placehold.it/750x450" alt=""></a>
+                    <h3><a href="#" data-toggle="modal" data-target="#myModal">Sơn</a></h3>
+                </div>
+
+                <div class="col-sm-3 text-center">
+                    <a href="#" data-toggle="modal" data-target="#myModal"><img class="img-responsive" src="http://placehold.it/750x450" alt=""></a>
+                    <h3><a href="#" data-toggle="modal" data-target="#myModal">Sơn</a></h3>
+                </div>
+
+                <div class="col-sm-3 text-center">
+                    <a href="#" data-toggle="modal" data-target="#myModal"><img class="img-responsive" src="http://placehold.it/750x450" alt=""></a>
+                    <h3><a href="#" data-toggle="modal" data-target="#myModal">Sơn</a></h3>
+                </div>
             </div>
         </div>
+    </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Sơn lót EPOXY SEAMASTER 9400A - 5 lít</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <img class="img-responsive img-border-left" src="img/slide-2.jpg" alt="">
+                    </p>
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, vitae, distinctio, possimus repudiandae cupiditate ipsum excepturi dicta neque eaque voluptates tempora veniam esse earum sapiente optio deleniti consequuntur eos voluptatem.
+                    </p>
+                    <p>
+                        <b>Giá:</b> 100.000VNĐ
+                    </p>
+                    <p>
+                        <b>Thể tích:</b> 5 lít
+                    </p>
+                    <p>
+                        <b>Xuất xứ:</b> Việt Nam
+                    </p>
+                    <p>
+                        <b>Thành phần liên kết:</b> Epoxy-Polyamide
+                    </p>
+                    <p>
+                        <b>Độ mịn:</b> ASTM D 1210 - 96 15 µm
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- /.container -->
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php include "partials/footer.php"?>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>

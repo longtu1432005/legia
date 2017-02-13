@@ -191,3 +191,29 @@ footer p {
         clear: both;
     }
 }
+
+.product-container h3 a{
+    color: #000000;
+}
+
+.article-container h2 a, .product-container h4 a {
+    color: #333333;
+}
+
+.scrollToTop{
+    width:50px;
+    height:130px;
+    text-align:center;
+    background: whiteSmoke;
+    font-weight: bold;
+    color: #444;
+    text-decoration: none;
+    position:fixed;
+    bottom:0px;
+    right:40px;
+    display:none;
+    background: url('../img/scroll-top.png') no-repeat 0px 20px;
+}
+.scrollToTop:hover{
+    text-decoration:none;
+}
