@@ -1,0 +1,28 @@
+title = "Cart"
+url = "/gio-hang"
+layout = "default"
+is_hidden = 0
+child_of = "mey_no_parent"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[shopBasket]
+checkoutPage = "checkout"
+productPage = 404
+basketComponent = "shopBasket"
+basketPartial = "shopBasket::default"
+
+[shopCategories]
+slug = "{{ :slug }}"
+id = "{{ :id }}"
+categoryPage = "product/category"
+==
+<div class="container">
+    <div class="col-md-8">
+        {% component 'shopBasket' %}
+    </div>
+    <div class="col-md-4">
+        {% component 'shopCategories' %}
+    </div>
+</div>

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Color
+
+# Model Form Field configuration
+form: $/feegleweb/octoshoplite/models/color/fields.yaml
+
+# Model Class name
+modelClass: Feegleweb\OctoshopLite\Models\Color
+
+# Default redirect location
+defaultRedirect: feegleweb/octoshoplite/colors
+
+# Create page
+create:
+    title: Create Color
+    redirect: feegleweb/octoshoplite/colors/update/:id
+    redirectClose: feegleweb/octoshoplite/colors
+
+# Update page
+update:
+    title: Edit Size
+    redirect: feegleweb/octoshoplite/colors
+    redirectClose: feegleweb/octoshoplite/colors
+
+# Preview page
+preview:
+    title: Preview Colors

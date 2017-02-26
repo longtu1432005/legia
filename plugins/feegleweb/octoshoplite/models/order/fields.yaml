@@ -1,0 +1,63 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    product:
+        label: Product
+        type: relation
+        span: left
+        placeholder: Product name
+        required: true
+        select: title
+
+    quantity:
+        label: Quantity
+        type: text
+        span: right
+        required: true
+
+    toolbar:
+        type: partial
+        path: form_toolbar
+        cssClass: collapse-visible
+
+secondaryTabs:
+    stretch: true
+    fields:
+        username:
+            label: Username
+            type: text
+            span: left
+
+        created_at:
+            label: Created at
+            type: datepicker
+            mode: datetime
+            span: right
+
+        phone:
+            label: Phone
+            type: text
+            span: left
+
+        discount:
+            label: Discount
+            type: number
+            span: right
+
+        note:
+            label: Note
+            type: textarea
+            span: right
+            size: small
+
+        address:
+            label: Address
+            type: text
+            span: left
+
+        status:
+            label: Processed
+            type: switch
+            span: right

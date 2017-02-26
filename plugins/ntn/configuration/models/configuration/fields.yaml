@@ -1,0 +1,34 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    key:
+        label: Key
+        placeholder: KEY
+        span: left
+
+    status:
+        label: Status
+        type: switch
+        span: right
+        default: true
+
+    core:
+        label: Core
+        type: switch
+        span: right
+        default: true
+
+    value:
+        type: textarea
+        label: Value
+        span: left
+        size: tiny
+
+    description:
+        type: textarea
+        label: Description
+        span: left
+        

@@ -1,0 +1,25 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Order
+
+# Model Form Field configuration
+form: $/feegleweb/octoshoplite/models/order/fields.yaml
+
+# Model Class name
+modelClass: Feegleweb\OctoshopLite\Models\Order
+
+# Default redirect location
+defaultRedirect: feegleweb/octoshoplite/orders
+
+# Update page
+update:
+    title: Edit Order
+    redirect: feegleweb/octoshoplite/orders
+    redirectClose: feegleweb/octoshoplite/orders
+
+# Preview page
+preview:
+    title: Preview Order

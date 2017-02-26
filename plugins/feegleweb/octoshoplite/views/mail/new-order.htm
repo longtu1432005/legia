@@ -1,0 +1,18 @@
+Hi Admin, <br><br>
+
+Bạn vừa nhận được một đơn hàng trị giá {{ total }}đ từ website, chi tiết: <br><br>
+
+Tên sản phẩm: {{ order.product.title }}<br>
+Giá: {{ order.price }}<br>
+Số lượng: {{ order.quantity }}<br><br>
+
+<b>Thông tin khách hàng:</b><br>
+Họ tên: {{ order.username }}<br>
+Địa chỉ: {{ order.address }}<br>
+SĐT: {{ order.phone }}<br>
+{% if order.note != "" %}
+Ghi chú: {{ order.note|nl2br }}
+{% endif %}
+<br><br>
+--<br>
+Good luck.

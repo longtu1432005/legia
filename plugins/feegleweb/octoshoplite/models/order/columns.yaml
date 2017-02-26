@@ -1,0 +1,44 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+
+    username:
+            lable: Name
+
+    address:
+        label: Address
+
+    phone:
+        label: Phone
+
+    product_id:
+            label: Product
+            relation: product
+            select: title
+
+    quantity:
+           label: Quantity
+
+    total:
+           label: Total(đ)
+
+    status:
+        label: Processed
+        type: switch
+
+    note:
+        label: Note
+
+    created_at:
+        label: Date Created
+        type: date
+        invisible: true
+
+    updated_at:
+        label: Last Update
+        type: date
+        invisible: true

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Size
+
+# Model Form Field configuration
+form: $/feegleweb/octoshoplite/models/size/fields.yaml
+
+# Model Class name
+modelClass: Feegleweb\OctoshopLite\Models\Size
+
+# Default redirect location
+defaultRedirect: feegleweb/octoshoplite/sizes
+
+# Create page
+create:
+    title: Create Size
+    redirect: feegleweb/octoshoplite/sizes/update/:id
+    redirectClose: feegleweb/octoshoplite/sizes
+
+# Update page
+update:
+    title: Edit Size
+    redirect: feegleweb/octoshoplite/sizes
+    redirectClose: feegleweb/octoshoplite/sizes
+
+# Preview page
+preview:
+    title: Preview Size

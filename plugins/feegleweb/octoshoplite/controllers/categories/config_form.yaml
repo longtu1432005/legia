@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Category
+
+# Model Form Field configuration
+form: $/feegleweb/octoshoplite/models/category/fields.yaml
+
+# Model Class name
+modelClass: Feegleweb\OctoshopLite\Models\Category
+
+# Default redirect location
+defaultRedirect: feegleweb/octoshoplite/categories
+
+# Create page
+create:
+    title: Create Category
+    redirect: feegleweb/octoshoplite/categories/update/:id
+    redirectClose: feegleweb/octoshoplite/categories
+
+# Update page
+update:
+    title: Edit Category
+    redirect: feegleweb/octoshoplite/categories
+    redirectClose: feegleweb/octoshoplite/categories
+
+# Preview page
+preview:
+    title: Preview Category

@@ -1,0 +1,40 @@
+title = "Search"
+url = "/search"
+layout = "default"
+is_hidden = 0
+meta_title = "Tìm kiếm"
+meta_description = "Được thành lập từ những người anh em đam mê Esports, với ước muốn được đem đến những sản phẩm tốt nhất mà một game thủ thật sự cần."
+
+[shopProductSearch]
+keyword = "{{ :keyword }}"
+productPage = "product/detail"
+==
+<div class="breadcrumb">
+    <a href="/">Trang chủ &frasl; </a>
+    <a href="#">
+        <span class="current">Tìm kiếm</span>
+    </a>
+</div>
+
+<div id="product">
+    <h3 class="titleCat">Kết quả tìm kiếm từ khóa "{% if keyword is defined %}{{ keyword }}{% endif %}"</h3>
+    <ul class="item">
+        {% for product in shopProductSearch.products %}
+        <li>
+            <a href="{{ product.url }}" title="{{ product.title }}">
+                <div class="shadow allTrans"></div>
+                <img src="{{ product.images[0].getThumb(215, 250, {mode: 'crop'}) }}" alt="{{ product.title }}" />
+                {% if product.discount > 0 %}
+                <span class="salePercent">-{{ product.discount }}%</span>
+                {% endif %}
+                <span class="title">{{ product.title }}</span>
+                {% if product.discount > 0 %}
+                <span class="price originalPrice">{{ product.formatOriginalPrice() }}</span>
+                {% endif %}
+                <span class="price {% if product.discount > 0 %} sale {% endif %}">{{ product.formatPrice() }}</span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<!--End #product-->

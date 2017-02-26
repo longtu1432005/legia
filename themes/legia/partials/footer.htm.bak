@@ -1,0 +1,79 @@
+[blogPosts blogPostsAbout]
+pageNumber = "{{ :page }}"
+categoryFilter = "gioi-thieu"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+
+[blogPost blogPostAddress]
+slug = "dia-chi"
+categoryPage = "product/detail"
+
+[blogPosts blogPostsIntro]
+pageNumber = "{{ :page }}"
+categoryFilter = "huong-dan"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+==
+<?php
+
+use Ntn\Configuration\Models\Configuration;
+
+function onStart()
+{
+    $this['siteName'] = Configuration::getValueByKey('SITE_NAME');
+    $this['siteDesc'] = Configuration::getValueByKey('SITE_DESCRIPTION');
+    $this['openTime'] = Configuration::getValueByKey('OPEN_TIME');
+    $this['hotLine1'] = Configuration::getValueByKey('HOT_LINE1');
+    $this['hotLine2'] = Configuration::getValueByKey('HOT_LINE2');
+}
+?>
+==
+<div id="storeAdress">
+    <h3>Liên hệ cửa hàng</h3>
+    <div class="storeLeft">
+        <div class="aboutNavy">
+            <p>{% filter upper %} {{ siteName }} {% endfilter %}</br>
+                {{ siteDesc }}</br>
+                </br></br>Mở cửa từ {{ openTime }}
+            </p>
+        </div>
+        <div class="feedback">
+            <p>ĐẶT HÀNG - TƯ VẤN</br>
+                <span>{{ hotLine1 }} - {{ hotLine2 }}</span></br></br>
+                GÓP Ý - PHẢN ÁNH</br>
+                Từ {{ openTime }}</br>
+                {{ hotLine1 }}
+            </p>
+        </div>
+        <ul class="contactNavy">
+            {% for post in blogPostsAbout.posts %}
+            <li>
+                <a href="{{ post.url }}">{{ post.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <ul class="delivery">
+            {% for post in blogPostsIntro.posts %}
+            <li>
+                <a href="{{ post.url }}">{{ post.title }}</a>
+            </li>
+            {% endfor %}
+
+        </ul>
+    </div>
+    <div class="storeRight">
+        {{ blogPostAddress.post.content|raw }}
+    </div>
+</div>
+<!--End #storeAdress-->
+
+<footer>
+    <p>Copyright © 2016 | Navyshop.com.vn. All rights reserved</p>
+</footer>

@@ -1,0 +1,276 @@
+title = "Product detail"
+url = "/chi-tiet/:id/:slug"
+layout = "default"
+is_hidden = 0
+child_of = "mey_no_parent"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[shopProduct]
+slug = "{{ :slug }}"
+id = "{{ :id }}"
+
+[shopCategories]
+slug = "{{ :slug }}"
+id = "{{ :id }}"
+categoryPage = "product/category"
+
+[advanced]
+idSlider = 1
+height = 400
+autoplay = "true"
+fillmode = 0
+transaction = 2
+autoplayinterval = 2000
+pauseonhover = 1
+arrowkeynavigation = "true"
+slideduration = 500
+mindragoffset = 40
+slidespacing = 0
+dragorientation = 1
+playorientation = 1
+chancetoshow = 2
+autocenter = 1
+orientation = 1
+spacingx = 8
+spacingy = 8
+steps = 1
+lanes = 1
+chancetoshowarrow = 1
+autocenterarrow = 2
+stepsarrow = 1
+
+[shopProductList]
+category = "{{ :slug }}"
+productPage = "shop/product"
+==
+<?php
+
+function onEnd()
+{
+    $arrayIdCategories = $this->product->categories;
+    if (isset($this->categoryOfProductBreadcrumb)) {
+        $this->bodyClass = "bg-" . $this->categoryOfProductBreadcrumb[0]->slug;
+    }
+
+    $this['arrayIdCategories'] = [];
+
+    if (count($this->categoriesOfProduct)) {
+        $this['arrayIdCategories'] = array_column($this->categoriesOfProduct, 'id');
+    }
+
+    $this->page->title = $this->product->title;
+    $this->page->meta_description = str_limit(strip_tags($this->product->description), 100);
+    $this->page->facebook_image = $this->product->images[0]->getThumb(0, 0);
+}
+?>
+==
+{% for parentCat in shopCategories.categories  %}
+{% if parentCat.slug == categoryOfProductBreadcrumb[0].slug and parentCat.children %}
+<div id="mainMenu">
+    {% for key, subCategory in parentCat.children() %}
+    {% if subCategory.slug != "lol-khuyen-mai" %}
+    <ul class="innerMenu {% if key == 0 %} bg-opacity-95 {% endif %}">
+        {% for childCategory in subCategory.children() %}
+        <li>
+            <a class="allTrans {%if childCategory.id in arrayIdCategories %} active {% endif %}"
+               href="{{ childCategory.url }}">
+                <img src="{{ childCategory.primary_image.getThumb(30, 30, {mode: 'crop'}) }}" alt="{{childCategory.title}}"
+                     height="30" width="30" />
+                {{ childCategory.title }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endif %}
+{% endfor %}
+
+<div id="banner">
+    {% component "advanced" %}
+</div>
+<!--End #banner-->
+
+<div class="breadcrumb">
+    <a href="/">Trang chủ &frasl; </a>
+    {% for bread in categoryOfProductBreadcrumb %}
+    <a href="{{ 'product/category'|page({id:bread.id, slug:bread.slug}) }}">{{ bread.title }} &frasl; </a>
+    {% endfor %}
+    <a href="#">
+        <span class="current">{{ product.title }}</span>
+    </a>
+</div>
+
+<div id="product">
+    <div class="gallery">
+        {% if product.discount > 0 %}
+        <div class="salePercent"><span>-{{ product.discount }}%</span></div>
+        {% endif %}
+        <div class="easyzoom easyzoom--adjacent">
+            <a href="{{ product.images[0].getThumb(0, 0) }}">
+                <img src="{{ product.images[0].getThumb(385, 450, {mode: 'crop'}) }}" alt="" width="385" height="450" />
+            </a>
+        </div>
+
+        <ul class="thumbnails">
+            {% for image in product.images %}
+            <li>
+                <a href="{{ image.getPath() }}" data-standard="{{ image.getPath() }}">
+                    <img src="{{ product.getSquareThumb(50, image) }}" alt="{{ product.title }}" />
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <!--End Gallery -->
+
+    <div class="shortDescription">
+        <h3>{{ product.title }}</h3>
+        <p>Tình trạng: {% if product.is_enabled == true %} Còn hàng {% else %} Tạm hết hàng {% endif %}</p><br>
+        <div class="description">
+            <p>{{ product.special_information|nl2br  }}</p>
+        </div>
+        <p><span class="price">Giá: {{ product.formatPrice() }}</span></p>
+        {% if product.discount > 0 %}
+        <p><span class="priceOld">Giá gốc: {{ product.formatOriginalPrice() }}</span></p>
+        {% endif %}
+
+        {% if product.colors|length > 0 %}
+        <div class="outColor">
+            <p><span>Chọn màu</span></p>
+            <select name="color" class="color" id="colorChoose">
+                <option>-- Màu --</option>
+                {% for color in product.colors %}
+                <option value="{{ color.name }}">{{ color.name }}</option>
+                {% endfor %}
+            </select><br/>
+        </div>
+        {% endif %}
+
+        {% if product.sizes|length > 0 %}
+        <div class="outSize">
+            <p><span>Chọn size</span></p>
+            <select name="size" class="size" id="sizeChoose">
+                <option>-- Size --</option>
+                {% for size in product.sizes %}
+                <option value="{{ size.short_name }}">{{ size.short_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        {% endif %}
+
+        <p class="outNumber"><span>Số lượng</span><br/>
+            <input type="number" id="order-quantity" class="number" value="1">
+        </p>
+
+        <!--<p class="bonus"><img src="images/thumbnail_1.jpg" /><span>Khuyến mãi vòng đeo</span></p>-->
+
+        <button class="buy allTrans" type="button">Mua ngay</button>
+    </div>
+    <!--End Short -->
+
+    {% if product.description %}
+    <div class="moreDescription">
+        <h3>Chi tiết</h3>
+        {{ product.description|raw }}
+    </div>
+    {% endif %}
+    <!--End More -->
+
+    <div class="same">
+        <h3 class="titleCat">SẢN PHẨM CÙNG LOẠI</h3>
+        <ul class="item">
+            {% for product in sameCategoryProducts %}
+            <li>
+                <a href="{{ 'product/detail'|page({id: product.id, slug: product.slug}) }}" title="{{ product.title }}">
+                    <div class="shadow allTrans"></div>
+                    <img src="{{ product.images[0].getThumb(215, 250, {mode: 'crop'}) }}" alt="{{ product.title }}" />
+                    {% if product.discount > 0 %}
+                    <span class="salePercent">-{{ product.discount }}%</span>
+                    {% endif %}
+                    <span class="title">{{ product.title }}</span>
+                    {% if product.discount > 0 %}
+                    <span class="price originalPrice">{{ product.formatOriginalPrice() }}</span>
+                    {% endif %}
+                    <span class="price {% if product.discount > 0 %} sale {% endif %}">{{ product.formatPrice() }}</span>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <!--End Same -->
+
+</div>
+<!--End #product-->
+
+<div class="popup">
+    <a class="close allTrans"><img src="{{ 'assets/images/close_pop.png'|theme }}" class="btn_close" title="Close" alt="Close" /></a>
+    <div class="confirm">
+        <form method="post" id="formOrder"
+            onsubmit="$(this).request('onSubmitOrder'); return false;"
+            data-request-success="
+                if(data.status) {
+                    $('#mask, .popup').fadeOut(300, function(){
+                        $('#mask').remove();
+                    });
+
+                    $('#flash-message').attr('class', 'bg-success');
+                    $('#flash-message').empty();
+                    $('#flash-message').append('Đặt hàng thành công');
+                    $('#flash-message').delay(500).fadeIn('normal', function() {
+                        $(this).delay(2500).fadeOut();
+                    });
+                }
+            "
+        >
+            <input type="hidden" name="product_id" value="{{ product.id }}">
+            <input type="hidden" name="quantity" value="1">
+            <input type="hidden" name="size" value="">
+            <input type="hidden" name="color" value="">
+            <h3>Thông tin của bạn</h3>
+            <fieldset class="textbox">
+                <label class="username">
+                    <span>Họ & Tên <strong>(bắt buộc)</strong></span>
+                    <input id="username" name="username" value="" type="text" required>
+                </label>
+
+                <label class="address">
+                    <span>Địa chỉ <strong>(bắt buộc)</strong></span>
+                    <input id="address" name="address" value="" type="text" placeholder="" required>
+                </label>
+
+                <label class="tel">
+                    <span>Số điện thoai <strong>(bắt buộc)</strong></span>
+                    <input id="phone" name="phone" value="" type="text" placeholder="" required>
+                </label>
+
+                <label class="note">
+                    <span>Bạn muốn ghi chú gì thêm không?</span>
+                    <input id="note" name="note" value="" type="text" placeholder="">
+                </label>
+            </fieldset>
+            <h3 class="titleOrder">Đơn hàng</h3>
+            <ul class="listOrder">
+                <li>
+                    <a>
+                        <img src="{{ product.images[0].getThumb(50, 50, {mode: 'crop'}) }}" alt="Thumbnail" />
+                        <span>{{ product.title }}</span>
+                        <span>
+
+                            <label id="labelQuantity">1</label> x {{ product.formatPrice() }}
+                        </span>
+                    </a>
+                </li>
+            </ul>
+            <input type="submit" class="submit allTrans" value="Xác nhận">
+        </form>
+    </div>
+    <div class="done" style="display: none;">
+        <p class="doneText">Đặt hàng thành công</p>
+        <p>Kiểm tra email để xem đơn hàng của bạn!</p>
+    </div>
+</div>
+<!--End Popup -->

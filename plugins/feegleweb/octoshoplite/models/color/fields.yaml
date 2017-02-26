@@ -1,0 +1,31 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: Name
+        type: text
+        span: left
+        placeholder: Color name
+        required: true
+
+    code:
+        label: Color code
+        type: text
+        span: right
+        required: true
+
+    toolbar:
+        type: partial
+        path: form_toolbar
+        cssClass: collapse-visible
+        span: left
+
+    status:
+        label: Status
+        type: switch
+        span: right
+        default: true
+
+

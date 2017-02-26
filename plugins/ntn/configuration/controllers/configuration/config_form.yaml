@@ -1,0 +1,27 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Configuration
+
+# Model Form Field configuration
+form: $/ntn/configuration/models/configuration/fields.yaml
+
+# Model Class name
+modelClass: Ntn\Configuration\Models\Configuration
+
+# Default redirect location
+defaultRedirect: system/settings
+
+# Create page
+create:
+    title: Create Configuration
+    redirect: ntn/configuration/configuration/update/:id
+    redirectClose: ntn/configuration/configuration
+
+# Update page
+update:
+    title: Edit Configuration
+    redirect: ntn/configuration/configuration
+    redirectClose: ntn/configuration/configuration
