@@ -4,7 +4,8 @@ return [
   'plugin' => [
     'name'                => 'Bootstrap Karussell',
     'description'         => 'Erstellen Sie responsive Karusselle.',
-    'tab'                 => 'Karussell'
+    'tab'                 => 'Karussell',
+    'permission_label'    => 'Verwalte Karussell'
   ],
   'carousels' => [
     'name'                => 'Name',
@@ -29,7 +30,4 @@ return [
     'created' => 'Erstellt am',
     'updated' => 'Aktualisiert am',
   ],
-  'permissions' => [
-    'manage_carousels' => 'Verwalte Karussell',
-  ]
 ];

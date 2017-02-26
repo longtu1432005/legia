@@ -5,11 +5,6 @@ use Mohsin\Carousel\Models\Carousel as CarouselModel;
 
 class Carousel extends ComponentBase
 {
-    /**
-     * The carousel to display
-     * @var Model
-     */
-    public $carousel;
 
     public function componentDetails()
     {
@@ -22,23 +17,34 @@ class Carousel extends ComponentBase
     public function defineProperties()
     {
         return [
-          'id' => [
-            'title'        => 'mohsin.carousel::lang.settings.name',
-            'description'  => 'mohsin.carousel::lang.settings.choice',
-            'type'         => 'dropdown'
+            'id' => [
+                'title'        => 'mohsin.carousel::lang.settings.name',
+                'description'  => 'mohsin.carousel::lang.settings.choice',
+                'type'         => 'dropdown'
             ],
-          ];
+            'height' => [
+                'title'         => 'Height',
+                'description'   => 'Height of slide',
+                'type'          => 'string',
+                'validationPattern' => '^[0-9]+$',
+                'default'       => '400',
+            ],
+        ];
     }
 
     public function getidOptions()
     {
-        return CarouselModel::select('id', 'name') -> orderBy('name') -> get() -> lists('name', 'id');
+      return CarouselModel::select('id', 'name') -> orderBy('name') -> get() -> lists('name', 'id');
     }
 
     public function onRun()
     {
         $carousel = new CarouselModel;
-        $this -> carousel = $carousel -> where('id', '=', $this -> property('id')) -> first();
+        $this -> carousel = $this -> page['carousel'] = $carousel -> where('id', '=', $this -> property('id')) -> first();
+        // Inject all slider properties to page.
+        foreach ($this->getProperties() as $key => $value) {
+            $this->page[$key] = $value;
+        }
     }
 
 }
