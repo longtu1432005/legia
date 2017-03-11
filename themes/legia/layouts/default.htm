@@ -10,7 +10,8 @@ function onStart()
     $this['titlePrefix'] = Configuration::getValueByKey('TITLE_PREFIX');
     //$this['facebookLeftScroll'] = Configuration::getValueByKey('FACEBOOK_LEFT_SCROLL');
     $this['ga'] = Configuration::getValueByKey('GOOGLE_ANALYTICS');
-    //$this['facebookID'] = Configuration::getValueByKey('FACEBOOK_APP_ID');
+    $this['siteName'] = Configuration::getValueByKey('SITE_NAME');
+    $this['slogan'] = Configuration::getValueByKey('SLOGAN');
 }
 ?>
 ==
@@ -64,7 +65,10 @@ function onStart()
 
     </head>
     <body>
-        {% partial "header" %}
+        <div class="brand">{{siteName}}</div>
+        <div class="address-bar">{{slogan}}</div>
+
+        {% partial "break-news" %}
 
         {% partial "nav" %}
 

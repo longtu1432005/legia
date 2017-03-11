@@ -23,9 +23,9 @@ columns:
     price:
           label: Price
 
-    discount:
-        label: Discount(%)
-        type: number
+#    discount:
+#        label: Discount(%)
+#        type: number
 
     is_enabled:
         label: Published

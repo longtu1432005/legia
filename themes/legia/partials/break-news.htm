@@ -1,0 +1,16 @@
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "tin-hot"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+==
+<div class="break-news">
+    <marquee scroll scrolldelay="20" direction="left">
+        {% for post in blogPosts.posts %}
+        <a href="{{ post.url }}">{{ post.title }}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        {% endfor %}
+    </marquee>
+</div>

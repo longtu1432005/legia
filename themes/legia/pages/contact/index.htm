@@ -16,12 +16,14 @@ use Ntn\Configuration\Models\Configuration;
 
 function onStart()
 {
+    $this['companyName'] = Configuration::getValueByKey('COMPANY_NAME');
     $this['map'] = Configuration::getValueByKey('MAP_LINK_1');
     $this['companyName'] = Configuration::getValueByKey('COMPANY_NAME');
     $this['address'] = Configuration::getValueByKey('ADDRESS_HEADQUARTERS');
     $this['hotline1'] = Configuration::getValueByKey('HOT_LINE1');
     $this['hotline2'] = Configuration::getValueByKey('HOT_LINE2');
     $this['contactEmail'] = Configuration::getValueByKey('CONTACT_EMAIL');
+    $this['mst'] = Configuration::getValueByKey('MST');
 }
 ?>
 ==
@@ -29,8 +31,7 @@ function onStart()
     <div class="box">
         <div class="col-lg-12">
             <hr>
-            <h2 class="intro-text text-center">Liên hệ với
-                <strong>{{companyName}}</strong>
+            <h2 class="intro-text text-center">Liên hệ
             </h2>
             <hr>
         </div>
@@ -40,18 +41,25 @@ function onStart()
                     src="{{map}}"></iframe>
         </div>
         <div class="col-md-4">
+            <p><b>{{companyName}}</b></p>
+            <p>Địa chỉ:
+                <strong>{{address}}</strong>
+            </p>
+            {% if not mst in 'xxx'%}
+            <p>MST:
+                <strong>{{mst}}</strong>
+            </p>
+            {% endif %}
+            <p>E:
+                <strong><a href="mailto:name@example.com">{{contactEmail}}</a></strong>
+            </p>
             <p>SĐT 1:
                 <strong>{{hotline1}}</strong>
             </p>
             <p>SĐT 1:
                 <strong>{{hotline2}}</strong>
             </p>
-            <p>Email:
-                <strong><a href="mailto:name@example.com">{{contactEmail}}</a></strong>
-            </p>
-            <p>Địa chỉ:
-                <strong>{{address}}</strong>
-            </p>
+
         </div>
         <div class="clearfix"></div>
     </div>

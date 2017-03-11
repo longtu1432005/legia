@@ -37,18 +37,18 @@ secondaryTabs:
             type: switch
             span: right
 
-        is_stockable:
-            tab: Manage
-            label: Stock Tracking
-            type: switch
-            span: right
-
-        stock:
-            tab: Manage
-            label: Quantity
-            type: number
-            span: right
-            cssClass: checkbox-align
+#        is_stockable:
+#            tab: Manage
+#            label: Stock Tracking
+#            type: switch
+#            span: right
+#
+#        stock:
+#            tab: Manage
+#            label: Quantity
+#            type: number
+#            span: right
+#            cssClass: checkbox-align
 
         price:
             tab: Manage
@@ -79,38 +79,38 @@ secondaryTabs:
             label: Special information
             type: textarea
             span: left
+#
+#        sizes:
+#            tab: Manage
+#            label: Sizes
+#            type: taglist
+#            mode: relation
+#            span: left
+#
+#        colors:
+#            tab: Manage
+#            label: Colors
+#            type: taglist
+#            mode: relation
+#            span: left
 
-        sizes:
-            tab: Manage
-            label: Sizes
-            type: taglist
-            mode: relation
-            span: left
-
-        colors:
-            tab: Manage
-            label: Colors
-            type: taglist
-            mode: relation
-            span: left
-
-        model:
-            tab: Manage
-            label: Model
-            type: text
-            span: left
-
-        sku:
-            tab: Manage
-            label: SKU
-            type: text
-            span: left
-
-        brand:
-            tab: Manage
-            label: Brand name
-            type: text
-            span: left
+#        model:
+#            tab: Manage
+#            label: Model
+#            type: text
+#            span: left
+#
+#        sku:
+#            tab: Manage
+#            label: SKU
+#            type: text
+#            span: left
+#
+#        brand:
+#            tab: Manage
+#            label: Brand name
+#            type: text
+#            span: left
 
         categories:
             tab: Categories

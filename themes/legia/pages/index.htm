@@ -5,10 +5,6 @@ is_hidden = 0
 meta_title = "Cửa hàng vật liệu xây dựng & trang trí nội thất Lê Gia"
 meta_description = "UY TÍN NHẤT - CHẤT LƯỢNG NHẤT - RẺ NHẤT - NHANH CHÓNG NHẤT."
 
-[blogPost]
-slug = "gioi-thieu"
-categoryPage = "blog/post"
-
 [blogPosts]
 pageNumber = "{{ :page }}"
 categoryFilter = "du-an"
@@ -21,6 +17,10 @@ postPage = "blog/post"
 [carousel]
 id = 1
 height = 600
+
+[shopProductList]
+category = "{{ :slug }}"
+productPage = "shop/product"
 ==
 <div class="row">
     <div class="box">
@@ -32,21 +32,53 @@ height = 600
 </div>
 
 <div class="row">
-    <div class="box">
+    <div class="box product-container">
         <div class="col-lg-12">
             <hr>
-            <h2 class="intro-text text-center">Giới thiệu về
-                <strong>Công Ty TNHH LÊ GIA</strong>
+            <h2 class="intro-text text-center">Sản phẩm nổi bật
             </h2>
             <hr>
-            <img class="img-responsive img-border img-left"
-                 src="{{ blogPost.post.getThumb(250, 150, blogPost.post.featured_images[0]) }}" alt="{{ blogPost.post.title}}">
-            <hr class="visible-xs">
-            {{ blogPost.post.content|raw}}
+            {% for key, product in shopProductList.products %}
+            <div class="col-sm-3 text-center product">
+                <a href="#" data-toggle="modal" data-target="#myModal-{{product.id}}">
+                    <img class="center-block img-responsive" src="{{ product.images[0].getThumb(255, 255, {mode: 'crop'}) }}" alt="{{ product.title }}"></a>
+                <h5><a href="#" data-toggle="modal" data-target="#myModal">{{ product.title|slice(0, 25) }}</a></h5>
+                {% if product.price > 0 %}
+                    {% if product.discount > 0 %}
+                        <span class="price originalPrice">{{ product.formatOriginalPrice() }}</span>
+                    {% endif %}
+                    <span class="price {% if product.discount > 0 %} sale {% endif %}">{{ product.formatPrice() }}</span>
+                {% else %}
+                    <span class="price originalPrice">Liên hệ</span>
+                {% endif %}
+
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal-{{product.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">{{product.title}}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                <img class="img-responsive img-border-left" src="{{ product.images[0].getThumb(568, 272, {mode: 'crop'}) }}" alt="{{product.title}}">
+                            </p>
+                            {{ product.description|raw }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if (key + 1)%4 == 0 %}
+            <div class="clearfix"></div>
+            {% endif %}
+            {% endfor %}
         </div>
     </div>
 </div>
 
+{% if blogPosts.posts.count() > 0 %}
 <div class="row">
     <div class="box product-container">
         <div class="col-lg-12">
@@ -70,3 +102,4 @@ height = 600
         </div>
     </div>
 </div>
+{% endif %}

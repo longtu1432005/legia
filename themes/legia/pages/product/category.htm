@@ -16,7 +16,6 @@ url="san-pham/"
 <?php
 function onEnd()
 {
-    $this->bodyClass = "bg-" . $this->categoryBreadcrumb[0]->slug;
     $this->page->title = $this->category->title;
     $this->page->meta_description = str_limit(strip_tags($this->category->description), 100);
 }
@@ -44,7 +43,7 @@ function onEnd()
             {% for key, childCategory in category.children() %}
                 <div class="col-sm-3 text-center">
                     <a href="/san-pham/{{childCategory.id}}/{{ childCategory.slug }}">
-                        <img class="center-block img-responsive" src="{{ childCategory.primary_image.getThumb(255, 153, {mode: 'crop'}) }}" alt="{{ childCategory.title }}"></a>
+                        <img class="center-block img-responsive" src="{{ childCategory.primary_image.getThumb(255, 255, {mode: 'crop'}) }}" alt="{{ childCategory.title }}"></a>
                     <h3><a href="{{ childCategory.url }}">{{ childCategory.title|slice(0, 25) }}</a></h3>
                 </div>
                 {% if (key + 1)%4 == 0 %}
@@ -53,14 +52,18 @@ function onEnd()
             {% endfor %}
         {% else %}
             {% for key, product in shopProductList.products %}
-                <div class="col-sm-3 text-center">
+                <div class="col-sm-3 text-center product">
                     <a href="#" data-toggle="modal" data-target="#myModal-{{product.id}}">
-                        <img class="center-block img-responsive" src="{{ product.images[0].getThumb(255, 153, {mode: 'crop'}) }}" alt="{{ product.title }}"></a>
+                        <img class="center-block img-responsive" src="{{ product.images[0].getThumb(255, 255, {mode: 'crop'}) }}" alt="{{ product.title }}"></a>
                     <h5><a href="#" data-toggle="modal" data-target="#myModal">{{ product.title|slice(0, 25) }}</a></h5>
-                    {% if product.discount > 0 %}
-                    <span class="price originalPrice">{{ product.formatOriginalPrice() }}</span>
+                    {% if product.price > 0 %}
+                        {% if product.discount > 0 %}
+                            <span class="price originalPrice">{{ product.formatOriginalPrice() }}</span>
+                        {% endif %}
+                        <span class="price {% if product.discount > 0 %} sale {% endif %}">{{ product.formatPrice() }}</span>
+                    {% else %}
+                        <span class="price">Liên hệ</span>
                     {% endif %}
-                    <span class="price {% if product.discount > 0 %} sale {% endif %}">{{ product.formatPrice() }}</span>
 
                 </div>
                 <!-- Modal -->
