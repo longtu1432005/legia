@@ -39,7 +39,7 @@ productPage = "shop/product"
             </h2>
             <hr>
             {% for key, product in shopProductList.products %}
-            <div class="col-sm-3 text-center product">
+            <div class="col-sm-2 text-center product">
                 <a href="#" data-toggle="modal" data-target="#myModal-{{product.id}}">
                     <img class="center-block img-responsive" src="{{ product.images[0].getThumb(255, 255, {mode: 'crop'}) }}" alt="{{ product.title }}"></a>
                 <h5><a href="#" data-toggle="modal" data-target="#myModal">{{ product.title|slice(0, 25) }}</a></h5>
