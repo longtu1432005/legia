@@ -4,9 +4,11 @@ id = "{{ :id }}"
 categoryPage = "product/category"
 ==
 <?php
+use Ntn\Configuration\Models\Configuration;
 function onStart()
 {
     $this['requestUri'] = $_SERVER['REQUEST_URI'];
+    $this['siteName'] = Configuration::getValueByKey('SITE_NAME');
 }
 ?>
 ==
@@ -22,7 +24,7 @@ function onStart()
                 <span class="icon-bar"></span>
             </button>
             <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-            <a class="navbar-brand" href="/">VLXD Lê Gia</a>
+            <a class="navbar-brand" href="/">{{siteName}}</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
