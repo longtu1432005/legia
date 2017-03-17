@@ -10,6 +10,7 @@ function onStart()
     $this['hotline2'] = Configuration::getValueByKey('HOT_LINE2');
     $this['contactEmail'] = Configuration::getValueByKey('CONTACT_EMAIL');
     $this['siteName'] = Configuration::getValueByKey('SITE_NAME');
+    $this['mst'] = Configuration::getValueByKey('MST');
 }
 ?>
 ==
@@ -19,6 +20,7 @@ function onStart()
             <div class="col-lg-12 text-center">
                 <p>
                     <b style="text-transform: uppercase">{{siteName}}</b><br>
+                    MST: {{mst}}<br>
                     Ðịa chỉ: {{address}}<br>
                     Ðiện thoại: {{hotline1}} | {{hotline2}}<br>
                     Email: {{contactEmail}}
