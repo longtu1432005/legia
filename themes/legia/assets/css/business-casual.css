@@ -320,3 +320,8 @@ footer p {
 .dropdown-menu>li>a, .dropdown-menu>li>a:hover {
     color: #00599e;
 }
+
+.blog-container table>tbody>tr>td, .blog-container table>tbody>tr>th, .blog-container table>tfoot>tr>td,
+.blog-container table>tfoot>tr>th, .blog-container table>thead>tr>td, .blog-container table>thead>tr>th {
+    padding: 8px;
+}
