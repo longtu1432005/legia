@@ -325,3 +325,7 @@ footer p {
 .blog-container table>tfoot>tr>th, .blog-container table>thead>tr>td, .blog-container table>thead>tr>th {
     padding: 8px;
 }
+
+.blog-container p {
+    text-align: justify;
+}
