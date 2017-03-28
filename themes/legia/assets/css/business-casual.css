@@ -11,6 +11,7 @@ body {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    color: #00599e;
 }
 
 h1,
@@ -29,7 +30,8 @@ h6 {
 p {
     font-size: 1.25em;
     line-height: 1.6;
-    color: #000;
+    /*color: #000;*/
+    color: #00599e;
 }
 
 hr {
@@ -98,7 +100,6 @@ hr {
 .intro-text {
     text-transform: uppercase;
     font-size: 1.25em;
-    font-weight: 400;
     letter-spacing: 1px;
 }
 
@@ -217,11 +218,13 @@ footer p {
 }
 
 .product-container h3 a{
-    color: #000000;
+    /*color: #000000;*/
+    color: #00599e;
 }
 
 .article-container h2 a, .product-container h4 a, .product-container h5 a {
-    color: #333333;
+    /*color: #333333;*/
+    color: #00599e;
 }
 .product-container .product {
     margin-bottom: 10px;
@@ -244,7 +247,8 @@ footer p {
     text-align:center;
     background: whiteSmoke;
     font-weight: bold;
-    color: #444;
+    /*color: #444;*/
+    color: #00599e;
     text-decoration: none;
     position:fixed;
     bottom:0px;
