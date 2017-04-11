@@ -16,13 +16,13 @@ postPage = "blog/post"
 
 [carousel]
 id = 1
-height = 600
+height = 550
 
 [shopProductList]
 category = "trang-chu"
 productPage = "product/detail"
 ==
-<div class="row">
+<div class="row hidden-xs">
     <div class="box">
         <div class="col-lg-12 text-center">
             {% component "carousel" %}
@@ -38,7 +38,7 @@ productPage = "product/detail"
             <h2 class="intro-text text-center">Sản phẩm nổi bật</h2>
             <hr>
             {% for key, product in shopProductList.products %}
-            <div class="col-sm-2 text-center product">
+            <div class="col-sm-2 col-xs-6 text-center product">
                 <a href="#" data-toggle="modal" data-target="#myModal-{{product.id}}">
                     <img class="center-block img-responsive" src="{{ product.images[0].getThumb(255, 255, {mode: 'crop'}) }}" alt="{{ product.title }}"></a>
                 <h5><a href="#" data-toggle="modal" data-target="#myModal">{{ product.title|slice(0, 25) }}</a></h5>
@@ -62,14 +62,14 @@ productPage = "product/detail"
                         </div>
                         <div class="modal-body">
                             <p>
-                                <img class="img-responsive img-border-left" src="{{ product.images[0].getThumb(568, 272, {mode: 'crop'}) }}" alt="{{product.title}}">
+                                <img class="img-responsive img-border-left" src="{{ product.images[0].getThumb(568, 400, {mode: 'crop'}) }}" alt="{{product.title}}">
                             </p>
                             {{ product.description|raw }}
                         </div>
                     </div>
                 </div>
             </div>
-            {% if (key + 1)%5 == 0 %}
+            {% if (key + 1)%6 == 0 %}
             <div class="clearfix"></div>
             {% endif %}
             {% endfor %}

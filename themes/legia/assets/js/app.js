@@ -19,4 +19,9 @@ $(document).ready(function(){
         return false;
     });
 
+    $('.blog-container img').each(function (item) {
+        $(this).attr('width', 'auto');
+        $(this).addClass('img-responsive');
+    });
+
 });
