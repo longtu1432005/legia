@@ -47,6 +47,8 @@ productPage = "product/detail"
                         <span class="price originalPrice">{{ product.formatOriginalPrice() }}</span>
                     {% endif %}
                     <span class="price {% if product.discount > 0 %} sale {% endif %}">{{ product.formatPrice() }}</span>
+                {% elseif product.sku != '' %}
+                    <a target="_blank" href="{{ product.sku }}">Download bản giá</a>
                 {% else %}
                     <span class="price">Liên hệ</span>
                 {% endif %}

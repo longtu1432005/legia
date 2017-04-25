@@ -24,4 +24,10 @@ $(document).ready(function(){
         $(this).addClass('img-responsive');
     });
 
+    //Click on menu
+    $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
+        event.stopPropagation();
+        window.href = $(this).attr('href');
+    });
+
 });

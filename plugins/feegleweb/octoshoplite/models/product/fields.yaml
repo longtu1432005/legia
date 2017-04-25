@@ -100,11 +100,11 @@ secondaryTabs:
 #            type: text
 #            span: left
 #
-#        sku:
-#            tab: Manage
-#            label: SKU
-#            type: text
-#            span: left
+        sku:
+            tab: Manage
+            label: Link download catalog / bản giá
+            type: text
+            span: left
 #
 #        brand:
 #            tab: Manage
